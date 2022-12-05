@@ -1,11 +1,16 @@
 const express = require("express");
+const dbo = require("./db/db");
 const app = express();
 const port = 4444;
 
-app.get("/", function (req, res) {
+dbo.connectToServer();
+
+
+ app.get("/", function (req, res) {
   res.send("Hello World!");
 });
 
 app.listen(port, function () {
   console.log(`App listening on port ${port}!`);
 });
+
